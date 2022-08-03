@@ -150,7 +150,7 @@ var seconds = 100;
 var countdownTimer = setInterval('secondPassed()', 1000);
 </script>
 <?php
-$q=mysqli_query($con,"SELECT * FROM options WHERE qid='$qid' " );
+$q=mysqli_query($con,"SELECT * FROM options WHERE qid='$qid' ORDER BY RAND()" );
 echo '<form action="update.php?q=quiz&step=2&eid='.$eid.'&n='.$sn.'&t='.$total.'&qid='.$qid.'" method="POST"  class="form-horizontal">
 <br />';
 
