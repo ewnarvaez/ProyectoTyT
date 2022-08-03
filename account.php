@@ -148,10 +148,25 @@ var seconds = 100;
     }
     }
 var countdownTimer = setInterval('secondPassed()', 1000);
+
+// Validación respuestas
+function validar(e) {
+  e.preventDefault();
+  
+  if($('input[type=radio]:checked').length == 0) 
+  {
+    alert("Debe seleccionar almenos una respuesta");
+  }
+  else 
+  {
+    $("#form-answer").submit();
+  }
+}
+
 </script>
 <?php
 $q=mysqli_query($con,"SELECT * FROM options WHERE qid='$qid' ORDER BY RAND()" );
-echo '<form action="update.php?q=quiz&step=2&eid='.$eid.'&n='.$sn.'&t='.$total.'&qid='.$qid.'" method="POST"  class="form-horizontal">
+echo '<form action="update.php?q=quiz&step=2&eid='.$eid.'&n='.$sn.'&t='.$total.'&qid='.$qid.'" method="POST"  class="form-horizontal" id="form-answer">
 <br />';
 
 while($row=mysqli_fetch_array($q) )
@@ -160,7 +175,7 @@ $option=$row['option'];
 $optionid=$row['optionid'];
 echo'<input type="radio" name="ans" value="'.$optionid.'">'.$option.'<br /><br />';
 }
-echo'<br /><button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>&nbsp;Enviar</button></form></div>';
+echo'<br /><button type="submit" class="btn btn-primary" id="options" onclick= "validar(event);";><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>&nbsp;Enviar</button></form></div>';
 //header("location:dash.php?q=4&step=2&eid=$id&n=$total");
 }
 //result display
