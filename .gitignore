@@ -1,0 +1,3 @@
+# Creado para indicar los archivos que git debe ignorar y no hacer seguimiento
+
+*.bak

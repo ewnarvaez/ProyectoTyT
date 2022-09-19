@@ -1,11 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="https://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Pre TyT   | | 
- Regioanl Quindío</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset=UTF-8>
+<title>Pre TyT Regional Quindío</title>
 <link rel="icon" sizes="192x192 250x250" href="image/favicon.png" type="image/png">
 <link  rel="stylesheet" href="css/bootstrap.min.css"/>
  <link  rel="stylesheet" href="css/bootstrap-theme.min.css"/>    
@@ -14,7 +15,7 @@
  <script src="js/jquery.js" type="text/javascript"></script>
 
   <script src="js/bootstrap.min.js"  type="text/javascript"></script>
- 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+ 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
 
 <script>
 $(function () {
@@ -167,7 +168,7 @@ while($row = mysqli_fetch_array($result)) {
     $email = $row['email'];
 	$college = $row['college'];
 
-	echo '<tr><td>'.$c++.'</td><td>'.$name.'</td><td>'.$gender.'</td><td>'.$college.'</td><td>'.$email.'</td><td>'.$mob.'</td>
+	echo '<tr><td>'.$c++.'</td><td>'.utf8_encode($name).'</td><td>'.$gender.'</td><td>'.$college.'</td><td>'.$email.'</td><td>'.$mob.'</td>
 	<td><a title="Delete User" href="update.php?demail='.$email.'"><b><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></b></a></td></tr>';
 }
 $c=0;
@@ -368,10 +369,10 @@ echo '<b>Pregunta número&nbsp;'.$i.'&nbsp;:</><br /><!-- Text input-->
 <b>Escoge la respuesta correcta</b>:<br/>
 <select id="ans'.$i.'" name="ans'.$i.'" placeholder="Escoge la respuesta correcta " class="form-control input-md" >
    <option value="a">Seleccione la respuesta a la pregunta '.$i.'</option>
-  <option value="a">option a</option>
-  <option value="b">option b</option>
-  <option value="c">option c</option>
-  <option value="d">option d</option> </select><br /><br />'; 
+  <option value="a">opción a</option>
+  <option value="b">opción b</option>
+  <option value="c">opción c</option>
+  <option value="d">opción d</option> </select><br /><br />'; 
  }
     
 echo '<div class="form-group">

@@ -1,11 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="https://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta charset='UTF-8'>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Pre TyT   | | 
- Regioanl Quindío</title>
+<title>Pre TyT Regional Quindío</title>
  <link rel="icon" sizes="192x192 250x250" href="image/favicon.png" type="image/png">
  <link  rel="stylesheet" href="css/bootstrap.min.css"/>
  <link  rel="stylesheet" href="css/bootstrap-theme.min.css"/>    
@@ -15,7 +15,7 @@
 
  
   <script src="js/bootstrap.min.js"  type="text/javascript"></script>
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
  <!--alert message-->
 <?php if(@$_GET['w'])
 {echo'<script>alert("'.@$_GET['w'].'");</script>';}
@@ -125,7 +125,7 @@ while($row=mysqli_fetch_array($q) )
 {
 $qns=$row['qns'];
 $qid=$row['qid'];
-echo '<b>Pregunta &nbsp;'.$sn.'&nbsp;:<br />'.$qns.'</b><br /><br />';
+echo '<b>Pregunta &nbsp;'.$sn.'&nbsp;:<br />'.($qns).'</b><br /><br />';
 }
 ?>
 <div align="right">
@@ -166,14 +166,14 @@ function validar(e) {
 </script>
 <?php
 $q=mysqli_query($con,"SELECT * FROM options WHERE qid='$qid' ORDER BY RAND()" );
-echo '<form action="update.php?q=quiz&step=2&eid='.$eid.'&n='.$sn.'&t='.$total.'&qid='.$qid.'" method="POST"  class="form-horizontal" id="form-answer">
+echo '<form action="update.php?q=quiz&step=2&eid='.$eid.'&n='.trim($sn).'&t='.$total.'&qid='.trim($qid).'" method="POST"  class="form-horizontal" id="form-answer">
 <br />';
 
 while($row=mysqli_fetch_array($q) )
 {
 $option=$row['option'];
 $optionid=$row['optionid'];
-echo'<input type="radio" name="ans" value="'.$optionid.'">'.$option.'<br /><br />';
+echo'<input type="radio" name="ans" value="'.$optionid.'">'.'&nbsp;'.$option.'<br /><br />';
 }
 echo'<br /><button type="submit" class="btn btn-primary" id="options" onclick= "validar(event);";><span class="glyphicon glyphicon-lock" aria-hidden="true"></span>&nbsp;Enviar</button></form></div>';
 //header("location:dash.php?q=4&step=2&eid=$id&n=$total");

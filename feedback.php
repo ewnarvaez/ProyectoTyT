@@ -36,10 +36,10 @@
  include_once 'dbConnection.php';
 session_start();
   if((!isset($_SESSION['email']))){
-echo '<a href="#" class="pull-right sub1 btn title3" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;Ingresar</a>&nbsp;';}
-else
-{
-echo '<a href="logout.php?q=feedback.php" class="pull-right sub1 btn title3"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Cerrar Sesión</a>&nbsp;';}
+    echo '<a href="#" class="pull-right sub1 btn title3" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;Ingresar</a>&nbsp;';}
+  else
+  {
+  echo '<a href="logout.php?q=feedback.php" class="pull-right sub1 btn title3"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Cerrar Sesión</a>&nbsp;';}
 ?>
 
 <a href="index.php" class="pull-right btn sub1 title3"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;Inicio</a>&nbsp;
@@ -128,7 +128,7 @@ else
 </div><!--End of row-->
 
 <div class="form-group"> 
-<textarea rows="5" cols="8" name="feedback" class="form-control" placeholder="Escribe tus retroalimentaciones aquí" required></textarea>
+<textarea rows="5" cols="8" name="feedback" class="form-control" placeholder="Escriba sus retroalimentaciones aquí" required></textarea>
 </div>
 <div class="form-group" align="center">
 <input type="submit" name="submit" value="Enviar" class="btn btn-primary" />
